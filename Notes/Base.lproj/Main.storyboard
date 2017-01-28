@@ -39,19 +39,22 @@
                     <navigationItem key="navigationItem" id="cHP-AN-3fj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BFA-x2-Nr6">
                             <connections>
-                                <segue destination="oDI-RK-AcW" kind="show" id="tWO-hm-qG0"/>
+                                <segue destination="oDI-RK-AcW" kind="show" identifier="noteSegue" id="tWO-hm-qG0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FvD-9X-HwL" id="xOU-6X-7W3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
+        <!--Notes View Controller-->
         <scene sceneID="4nk-yd-pcc">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="oDI-RK-AcW" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="oDI-RK-AcW" customClass="NotesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="51X-rK-was"/>
                         <viewControllerLayoutGuide type="bottom" id="8Bs-Rw-5PV"/>
@@ -91,10 +94,23 @@
                     </view>
                     <navigationItem key="navigationItem" id="VSE-2l-f1b">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="trash" id="Zhc-yG-eW2"/>
-                            <barButtonItem systemItem="save" id="5b0-MY-8fa"/>
+                            <barButtonItem systemItem="trash" id="Zhc-yG-eW2">
+                                <connections>
+                                    <action selector="deleteAction:" destination="oDI-RK-AcW" id="u2d-Qv-hJY"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="5b0-MY-8fa">
+                                <connections>
+                                    <action selector="saveAction:" destination="oDI-RK-AcW" id="Ow6-px-MHm"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteBTN" destination="Zhc-yG-eW2" id="cuu-T6-RjC"/>
+                        <outlet property="noteTextArea" destination="qrx-RD-Mj7" id="EyU-pC-Y2l"/>
+                        <outlet property="titleTextField" destination="fxT-hj-HSW" id="jPN-sa-BPS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wR-xC-TKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
